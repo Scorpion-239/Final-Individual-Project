@@ -1,12 +1,35 @@
-// nextjs-blog/pages/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
-import classNames from 'classnames';
 
 const HomePage = () => {
+  const [email, setEmail] = useState('');
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('../pages/api/subscribe.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        alert('Thank you for subscribing! Check your email for the resume.');
+        setEmail(''); // Clear the email input after successful submission
+      } else {
+        alert('Failed to subscribe. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <div>
-      <header className={classNames(styles.hero)}>
+      <header className={`${styles.hero}`}>
         <nav>
           <ul className={styles.navbar}>
             <li><a href="#projects">Projects</a></li>
@@ -17,29 +40,42 @@ const HomePage = () => {
         <div className={styles['hero-content']}>
           <h1>Ahmer Mustafa</h1>
           <h2>Web Developer &amp; Designer</h2>
-          <form className={styles['email-form']} action="send_resume.php" method="post">
-            <input type="email" name="email" placeholder="Enter your email" required />
+          <h3>Bio:</h3>
+          <p>
+            Ahmer Mustafa is a passionate and innovative web designer with a strong flair for creativity and a keen eye for detail. Born and raised in a tech-savvy environment, he developed an early fascination with the digital world, sparking his interest in web design. After pursuing a degree in Information Systems, he dove headfirst into the captivating world of web development.
+          </p>
+
+          {/* Subscription Form */}
+          <form className={styles['email-form']} onSubmit={handleFormSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
             <input type="submit" value="Get Resume" />
           </form>
         </div>
       </header>
 
-      <section id="projects" className={styles.section}>
-        <h2 className={classNames(styles['red-heading'])}>Projects</h2>
-        <a href="https://scorpion-239.github.io/Review/" className={classNames(styles['red-link'])}>Movies &amp; TV series review website - 2023</a>
+      <section id="projects" class="section">
+        <h2 class="red-heading">Projects</h2>
+        <a href="https://scorpion-239.github.io/Review/" class="red-link">Movies &amp; TV series review website - 2023</a>
       </section>
 
-      <section id="articles" className={styles.section}>
-        <h2 className={classNames(styles['red-heading'])}>Articles</h2>
-        <a href="https://scorpion-239.github.io/A.13/" className={classNames(styles['red-link'])}>Paper on oil spill - 2023</a>
+      <section id="articles" class="section">
+        <h2 class="red-heading">Articles</h2>
+        <a href="https://scorpion-239.github.io/A.13/" class="red-link">Paper on oil spill - 2023</a>
       </section>
 
-      <section id="contact" className={styles.section}>
-        <h2 className={classNames(styles['red-heading'])}>Contact</h2>
+      <section id="contact" class="section">
+        <h2 class="red-heading">Contact</h2>
         <p>Email: ahmermustafa08@gmail.com</p>
       </section>
 
-      <footer className={classNames(styles.footer)}>
+      <footer className="footer">
         <ul>
           <li><a href="https://github.com/Scorpion-239">Github</a></li>
           <li><a href="https://www.linkedin.com/in/ahmer-mustafa-5a110a218/">Linkedin</a></li>

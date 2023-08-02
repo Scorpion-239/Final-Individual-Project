@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
 
+<html>
+  <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WXKCHWYY29"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag()dataLayer.push(arguments);
+  gtag('js', new Date());
+
+  gtag('config', 'G-WXKCHWYY29');
+</script>
+  </head>
+</html>
+
 const HomePage = () => {
   const [email, setEmail] = useState('');
 

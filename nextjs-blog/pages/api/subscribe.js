@@ -1,5 +1,7 @@
 // nextjs-blog/pages/api/subscribe.js
 import nodemailer from 'nodemailer';
+import { mailcomposer } from 'nodemailer/lib/mail-composer';
+
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -9,8 +11,8 @@ export default async function handler(req, res) {
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'ahmermustafa08@gmail.com',
-        pass: '090078601',
+        user: 'AHMERMUSTAFA08@GMAIL.COM',
+        pass: '090078601', // Replace with your actual Gmail app password
       },
     });
 
@@ -18,21 +20,26 @@ export default async function handler(req, res) {
     const emailContent = {
       from: 'ahmermustafa08@gmail.com',
       to: email,
-      subject: 'Resume of Ahmer Mustafa ',
+      subject: 'Resume of Ahmer Mustafa',
       text: `Thank you for taking interest in me.`,
       attachments: [
         {
           filename: 'Ahmer_Mustafa_Resume.pdf',
-          path: '../public/Ahmer_Mustafa_Resume.pdf', // Update with the actual path to your resume PDF file
+          path: '../public/Ahmer_Mustafa_Resume.pdf',  // Use the absolute path to the resume PDF
         },
       ],
     };
 
+    // Create the email using mailcomposer
+    const mail = new mailcomposer(emailContent);
+
     // Send the email
     try {
-      await transporter.sendMail(emailContent);
+      const emailMessage = await mail.compile().build();
+      await transporter.sendMail(emailMessage);
       res.status(200).json({ message: 'Welcome email sent successfully.' });
     } catch (error) {
+      console.error('Error sending the email:', error);
       res.status(500).json({ error: 'Failed to send welcome email.' });
     }
   } else {

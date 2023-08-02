@@ -1,0 +1,50 @@
+name: Pre-Merge Tests and Deployment
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Add any necessary setup steps here (e.g., installing dependencies)
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: nextjs-blog
+
+      - name: Run Tests
+        run: npm test
+        working-directory: nextjs-blog
+
+      # Add any post-test steps here (e.g., generating coverage reports)
+      # ...
+
+      - name: Post Test Summary
+        if: always()
+        run: echo "Tests have completed!"
+
+      # Add the deployment step
+      - name: Deploy to Production
+        if: success() # This step runs only if the previous steps are successful
+        working-directory: nextjs-blog
+        run: |
+          # Replace these commands with your actual deployment steps
+          # For example, if you're using npm and Next.js:
+          # npm run build
+          # npm run export
+          # (Commands will vary based on your specific deployment process)

@@ -11,6 +11,12 @@ import styles from '../styles/Home.module.css';
 
   gtag('config', 'G-WXKCHWYY29');
 </script>
+
+<script id="Cookiebot" 
+src="https://consent.cookiebot.com/uc.js" 
+data-cbid="7f1dc297-8ecb-4261-a702-5e4b6cf126dc" 
+data-blockingmode="auto" type="text/javascript"></script>
+
   </head>
 </html>
 
@@ -92,6 +98,7 @@ const HomePage = () => {
         <ul>
           <li><a href="https://github.com/Scorpion-239">Github</a></li>
           <li><a href="https://www.linkedin.com/in/ahmer-mustafa-5a110a218/">Linkedin</a></li>
+          <li><a href="https://scorpion-239.github.io/A14/">Privacy Policy</a></li>
         </ul>
         <p>&copy; {new Date().getFullYear()} Ahmer Mustafa. All rights reserved.</p>
       </footer>

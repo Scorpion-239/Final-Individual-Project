@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+const { test, expect } =require('@playwright/test');
 
-const websiteURL = 'http://localhost:3001'; // Replace with your actual website URL
+const websiteURL = 'http://localhost:3000'; // Replace with your actual website URL
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');

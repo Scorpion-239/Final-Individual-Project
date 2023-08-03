@@ -63,19 +63,10 @@ const HomePage = () => {
           <p>
             Ahmer Mustafa is a passionate and innovative web designer with a strong flair for creativity and a keen eye for detail. Born and raised in a tech-savvy environment, he developed an early fascination with the digital world, sparking his interest in web design. After pursuing a degree in Information Systems, he dove headfirst into the captivating world of web development.
           </p>
-
-          {/* Subscription Form */}
-          <form className={styles['email-form']} onSubmit={handleFormSubmit}>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input type="submit" value="Get Resume" />
-          </form>
+          <a href="https://form.jotform.com/232144779939168">
+        <button class="button">Get Resume</button>
+    </a>
+          
         </div>
       </header>
 

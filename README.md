@@ -5,3 +5,5 @@
 ## Figma Link:- https://www.figma.com/file/KZ92n27VNawqnDTyrKfUFK/Untitled?type=design&node-id=0-1&mode=design&t=nXjTgHlwsoN9q2HF-0
 
 ## Link to the Presentation:- 
+
+## (It takes 3 to 4 minutes to recieve resume in the email)

@@ -3,15 +3,6 @@ import styles from '../styles/Home.module.css';
 
 <html>
   <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WXKCHWYY29"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag()dataLayer.push(arguments);
-  gtag('js', new Date());
-
-  gtag('config', 'G-WXKCHWYY29');
-</script>
-
 <script id="Cookiebot" 
 src="https://consent.cookiebot.com/uc.js" 
 data-cbid="7f1dc297-8ecb-4261-a702-5e4b6cf126dc" 
@@ -59,7 +50,7 @@ const HomePage = () => {
         <div className={styles['hero-content']}>
           <h1>Ahmer Mustafa</h1>
           <h2>Web Developer &amp; Designer</h2>
-          <h3>Bio:</h3>
+          <h3>About Me:</h3>
           <p>
             Ahmer Mustafa is a passionate and innovative web designer with a strong flair for creativity and a keen eye for detail. Born and raised in a tech-savvy environment, he developed an early fascination with the digital world, sparking his interest in web design. After pursuing a degree in Information Systems, he dove headfirst into the captivating world of web development.
           </p>

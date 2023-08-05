@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
+import Link from 'next/link';
 
 <html>
   <head>
@@ -80,7 +81,11 @@ const HomePage = () => {
         <ul>
           <li><a href="https://github.com/Scorpion-239">Github</a></li>
           <li><a href="https://www.linkedin.com/in/ahmer-mustafa-5a110a218/">Linkedin</a></li>
-          <li><a href="https://scorpion-239.github.io/A14/">Privacy Policy</a></li>
+          <li><div>
+      <Link href="/privacy_policy">
+        Privacy Policy
+      </Link>
+    </div></li>
         </ul>
         <p>&copy; {new Date().getFullYear()} Ahmer Mustafa. All rights reserved.</p>
       </footer>
